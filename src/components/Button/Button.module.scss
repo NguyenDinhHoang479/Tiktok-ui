@@ -1,0 +1,119 @@
+.wrapper{
+    min-width: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    border: 1px solid transparent;
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 6px 8px;
+    line-height: 21px;
+    user-select: none;
+    &:active{
+        opacity: 0.7;
+    }
+    &.disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+// button types
+
+.primary{
+    width: 84px;
+    color:var(--while-color) !important;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+        &:hover{
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+        }
+
+}
+
+.outline{
+    width: 111px;
+    padding: 0px 16px;
+    border-radius: 2px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    color: #000;
+    font-weight: 500;
+    background-color: var(--while-color);
+    &:hover{
+        background-color: rgba(22, 24, 35, .03)
+    }
+}
+
+.rounded{
+    background: none;
+    outline: none;
+    color: rgba(22, 24, 35, .75);
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 90px;
+    height: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 52px;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid rgba(22, 24, 35, .12);
+    &:hover{
+        background-color: rgba(22, 24, 35, .03)
+    }
+    
+}
+.btnMenu{
+    background-color: var(--while-color);
+    font-weight: 400;
+    width: 100%;
+    display: flex;
+    padding: 10px 8px;
+    justify-content: flex-start;
+    &:hover{
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+//button sizes
+.small{
+    min-width: 96px;
+    height: 36px;
+    align-items: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    color: var(--primary-color);
+    border: 1px solid currentColor;
+    background-color: var(--while-color);
+    &:hover{
+        background-color: #ffeef2;
+    }
+}   
+
+.large{
+    color: var(--primary-color);
+    border: 1px solid currentColor;
+    align-items: center;
+    justify-content: center;
+    min-width: 168px;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    &:hover{
+        background-color: #ffeef2;
+    }
+}
+
+.icon + .content, .content + .icon{
+    margin-left: 8px;
+}
+
+
+
