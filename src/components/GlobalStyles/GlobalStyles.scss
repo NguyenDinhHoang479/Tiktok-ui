@@ -1,5 +1,4 @@
 @import "normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Arbutus+Slab&family=Edu+SA+Beginner:wght@500&family=Open+Sans:ital,wght@1,300&family=Poppins:ital,wght@0,200;0,500;1,300&family=Roboto:ital,wght@0,500;0,700;1,300;1,400&display=swap');
 
 :root {
     --primary-color: rgba(254, 44, 85, 1);
@@ -20,11 +19,19 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
 }
+
+// fonts family
+@font-face {
+    font-family: IBM Plex Sans;
+    src: url('/assets/fontFamily/TikTokFont-Regular.woff2');
+    font-weight: 700px;
+}
+
 
 button, input, textarea, [tabindex] {
     outline: none;

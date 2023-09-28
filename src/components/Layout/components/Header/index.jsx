@@ -1,5 +1,5 @@
 // access
-import user from '../../../../assets/images/z4410591470828_cef71f2186a6550805c97bed894fe8f3.jpg'
+
 // react
 import classNames from 'classnames/bind'
 import { useEffect, useState } from 'react';
@@ -12,6 +12,8 @@ import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItems';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
+// import { EmailIcon, UploadIcon } from '../../../Icons';
+import Image from '../../../Image';
 
 
 const currenUser = true;
@@ -57,30 +59,30 @@ const MENU_ITEMS = [
 ];
 const userMenu = [
    {
-      icon: <i class="fa-light fa-user"></i>,
+      icon: <i className="fa-light fa-user"></i>,
       title: 'Xem hồ sơ',
       to: './user'
    },
    {
-      icon: <i class="fa-light fa-bookmark"></i>,
+      icon: <i className="fa-light fa-bookmark"></i>,
       title: 'Yêu thích',
       to: './user'
    },
    
    {
-      icon: <i class="fa-sharp fa-light fa-coin-front"></i>,
+      icon: <i className="fa-sharp fa-light fa-coin-front"></i>,
       title: 'Nhận xu',
       to: './coin'
    },
    
    {
-      icon: <i class="fa-light fa-gear"></i>,
+      icon: <i className="fa-light fa-gear"></i>,
       title: 'Cài đặt',
       to: './setting'
    },
    ...MENU_ITEMS,
    {
-      icon: <i class="fa-light fa-right-from-bracket"></i>,
+      icon: <i className="fa-light fa-right-from-bracket"></i>,
       title: 'Đăng xuất',
       to: './logout',
       separate: true,
@@ -134,18 +136,20 @@ const Header = () => {
          {/* action */}
          {currenUser ? (
             <div className={cx('action')}>
-               <button className={cx('upload')}>
-                  <i className="fa-regular fa-plus"></i>
+               <Button outline leftIcon={<i className={cx("fa-light fa-plus")}></i>}>
                   Tải lên
-               </button>
+               </Button>
                <Tippy content="Tin nhắn" placement='bottom' trigger='click'>
                   <div className={cx("chat")}>
+                     {/* <UploadIcon width='26px' height='26px' ></UploadIcon> */}
                      <i className="fa-thin fa-paper-plane"></i>
                   </div>
                </Tippy>
                <Tippy content="Hộp thư" >
                   <button className={cx("email")}>
-                     <i className="fa-thin fa-envelope-open-text"></i>
+                    {/* <EmailIcon width='32px' height='32px' ></EmailIcon> */}
+                    <i className="fa-thin fa-envelope-open-text"></i>
+                    <div className={cx("emailQuantity")}>10</div>
                   </button>
                </Tippy>
                <Menu
@@ -153,7 +157,10 @@ const Header = () => {
                   onChange={handleMenuChange}
                >
                <div className={cx("user")}>
-                  <img src={user} alt="user" />
+                  <Image src = "https://e0.365dm.com/13/09/800x600/robin-van-persie-manchester-crystal-palace-premier-league_3004821.jpg?20130917113837"
+                        errImage = "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/dataimages/201406/original/images962414_persie.jpg"
+                  />
+                  {/* <img src={user} alt="user" /> */}
                </div>
                </Menu>
             </div>

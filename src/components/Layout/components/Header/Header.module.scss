@@ -129,10 +129,30 @@
 
     .chat,
     .email {
-        width: 24px;
+        display: flex;
+        align-items: center;
         font-size: 20px;
         cursor: pointer;
         background-color: transparent;
+        position: relative;
+    }
+
+    .emailQuantity{
+        color: rgb(255, 255, 255);
+        font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        left: 12px;
+        background: rgb(254, 44, 85);
+        min-width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        position: absolute;
+        top: -44%;
     }
 
     .user {
