@@ -7,7 +7,7 @@ import { ProfileLayout } from "../components/Layout"
 const publicRoutes = [
     {path: '/', component: Home},
     {path: '/following', component: Following, layout: null},
-    {path: '/profile', component: Profile, layout: ProfileLayout},
+    {path: '/@/:nickname', component: Profile, layout: ProfileLayout},
 ]
 
 const privateRoutes = [
