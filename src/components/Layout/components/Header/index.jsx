@@ -2,6 +2,7 @@
 import classNames from 'classnames/bind'
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 // page
 import style from "./Header.module.scss"
 import images from '../../../../assets/images';
@@ -10,6 +11,7 @@ import Menu from '../../../Popper/Menu';
 // import { EmailIcon, UploadIcon } from '../../../Icons';
 import Image from '../../../Image';
 import Search from '../Search';
+import routeConfig from '../../../../config/routes';
 
 
 const cx = classNames.bind(style);
@@ -97,9 +99,9 @@ const Header = () => {
 
    return (<header className={cx('wrapper')}>
       <div className={cx('inner')}>
-         <div className={cx('logo')}>
+         <Link to = {routeConfig.home} className={cx('logo')}>
             <img src={images.logo} alt="tiktok" />
-         </div>
+         </Link>
          {/* search */}
          <Search></Search>
 

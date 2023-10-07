@@ -56,6 +56,7 @@
             background-color: #f1f1f2;
             border: none;
             caret-color: var(--primary-color);
+            font-family: var(--font-default);
     
             &::placeholder,
             textarea::placeholder {

@@ -2,12 +2,15 @@ import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
+import classNames from 'classnames/bind';
+
+
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItems';
-import classNames from 'classnames/bind';
 import style from './Search.module.scss';
 import { SearchIcon } from '../../../Icons';
 import { useDebounce } from '../../../../hooks';
+import * as searchService from '../../../../apiServer/searchService';
 
 const cx = classNames.bind(style);
 const Search = () => {
@@ -24,26 +27,27 @@ const Search = () => {
          return
       }
 
-      setLoading(true)
+      const fetchApi = async () => {
+         setLoading(true)
 
-     fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-     .then((respon)=>{
-         return respon.json()
-     })
-     .then((data)=>{
-      console.log(data.data);
-         setSearchResult(data.data)
+         const result = await searchService.search(debounce)
+         setSearchResult(result)
+
          setLoading(false)
-     })
-     .catch(()=>{
-         setLoading(false)
-     })
+      } 
+      fetchApi()
    }, [debounce])
 
    const handleHideSearchResult = () => {
       setShowSearchResult(false)
    }
+   const handleChanges = (e) => {
+      const searchValue = e.target.value;
+      if(!searchValue.startsWith(' ')){
+         setSearchValue(searchValue) 
+      }
 
+   }
    return (
       <Tippy
          interactive={true}
@@ -68,7 +72,7 @@ const Search = () => {
                   className={cx('input')}
                   type="text"
                   placeholder='Tìm kiếm'
-                  onChange={(e) => { setSearchValue(e.target.value) }}
+                  onChange={handleChanges}
                   onFocus={()=>{setShowSearchResult(true)}}
                   />
                {!!searchValue && !loading ?
