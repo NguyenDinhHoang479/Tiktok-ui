@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 const defaultfn = {}
-const Menu = ({ children, items = [], onChange = defaultfn }) => {
+const Menu = ({ children, items = [], hideOnClick = false, onChange = defaultfn }) => {
    const [history, setHistory] = useState([{data: items}]);
    const current = history[history.length - 1];
    const renderItems = () => {
@@ -32,7 +32,8 @@ const Menu = ({ children, items = [], onChange = defaultfn }) => {
       placement='bottom-start'
          interactive={true}
          //   visible
-           offset={[12, 8]}
+         offset={[12, 8]}
+         hideOnClick = {hideOnClick}
          delay={[0, 500]}
          render={(attrs) => (
             <PopperWrapper>

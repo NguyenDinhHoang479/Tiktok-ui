@@ -48,6 +48,7 @@ const Search = () => {
       }
 
    }
+   
    return (
       <Tippy
          interactive={true}
@@ -91,7 +92,7 @@ const Search = () => {
                
                
             </div>
-            <div className={cx("icon-search")}><SearchIcon></SearchIcon></div>
+            <div className={cx("icon-search")} onMouseDown={(e)=>(e.preventDefault())}><SearchIcon></SearchIcon></div>
          </div>
       </Tippy>
    );

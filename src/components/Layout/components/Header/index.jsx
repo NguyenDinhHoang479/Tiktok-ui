@@ -67,13 +67,13 @@ const userMenu = [
       title: 'Yêu thích',
       to: './user'
    },
-   
+
    {
       icon: <i className={cx("fa-sharp fa-light fa-coin-front")}></i>,
       title: 'Nhận xu',
       to: './coin'
    },
-   
+
    {
       icon: <i className={cx("fa-light fa-gear")}></i>,
       title: 'Cài đặt',
@@ -99,7 +99,7 @@ const Header = () => {
 
    return (<header className={cx('wrapper')}>
       <div className={cx('inner')}>
-         <Link to = {routeConfig.home} className={cx('logo')}>
+         <Link to={routeConfig.home} className={cx('logo')}>
             <img src={images.logo} alt="tiktok" />
          </Link>
          {/* search */}
@@ -119,21 +119,22 @@ const Header = () => {
                </Tippy>
                <Tippy content="Hộp thư" >
                   <button className={cx("email")}>
-                    {/* <EmailIcon width='32px' height='32px' ></EmailIcon> */}
-                    <i className={cx("fa-thin fa-envelope-open-text")}></i>
-                    <div className={cx("emailQuantity")}>10</div>
+                     {/* <EmailIcon width='32px' height='32px' ></EmailIcon> */}
+                     <i className={cx("fa-thin fa-envelope-open-text")}></i>
+                     <div className={cx("emailQuantity")}>10</div>
                   </button>
                </Tippy>
                <Menu
+                  hideOnClick={false}
                   items={userMenu}
                   onChange={handleMenuChange}
                >
-               <div className={cx("user")}>
-                  <Image src = "https://e0.365dm.com/13/09/800x600/robin-van-persie-manchester-crystal-palace-premier-league_3004821.jpg?20130917113837"
-                        errImage = "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/dataimages/201406/original/images962414_persie.jpg"
-                  />
-                  {/* <img src={user} alt="user" /> */}
-               </div>
+                  <div className={cx("user")}>
+                     <Image src="https://e0.365dm.com/13/09/800x600/robin-van-persie-manchester-crystal-palace-premier-league_3004821.jpg?20130917113837"
+                        errImage="https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/dataimages/201406/original/images962414_persie.jpg"
+                     />
+                     {/* <img src={user} alt="user" /> */}
+                  </div>
                </Menu>
             </div>
          ) : (
