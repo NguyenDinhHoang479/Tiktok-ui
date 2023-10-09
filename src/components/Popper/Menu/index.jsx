@@ -9,43 +9,52 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 const defaultfn = {}
-const Menu = ({ children, items = [], hideOnClick = false, onChange = defaultfn }) => {
-   const [history, setHistory] = useState([{data: items}]);
+const Menu = ({ children, items = [], hideOnClick = false, onChange = defaultfn}) => {
+   const [history, setHistory] = useState([{ data: items }]);
+   const [scroll, setScoll] = useState(true)
    const current = history[history.length - 1];
+
+
    const renderItems = () => {
-      return current.data.map((item, index) =>{ 
+      return current.data.map((item, index) => {
          const isParent = !!item.children
          return <Menuitem key={index} data={item} onClick={
-            ()=>{
-               if(isParent) {
-                  setHistory((prev)=>[...prev, item.children])
-               }else{
+            () => {
+               if (isParent) {
+                  setScoll(false)
+                  setHistory((prev) => [...prev, item.children])
+               } else {
                   onChange(item)
                }
             }
          }></Menuitem>
       })
    }
-   
+
    return (
       <Tippy
-      placement='bottom-start'
+         placement='bottom-end'
          interactive={true}
-         //   visible
+         // visible
          offset={[12, 8]}
-         hideOnClick = {hideOnClick}
+         hideOnClick={hideOnClick}
          delay={[0, 500]}
          render={(attrs) => (
             <PopperWrapper>
-               {history.length > 1 ? <Header title="Language" onBack={()=>{
-                  setHistory((prev)=>prev.slice(0, prev.length - 1))
-               }}/> : null}
-               <ul className={cx('menu-items')}>
-               {renderItems()}
-               </ul>
+               {history.length > 1 ? <Header title="Language" onBack={() => {
+                  setHistory((prev) => prev.slice(0, prev.length - 1))
+                  setScoll(true)
+               }} /> : null}
+
+               {scroll === true ? <ul className={cx('menu-items')}>
+                  {renderItems()}
+               </ul> : <ul className={cx('menu-scroll', 'menu-items')}>
+                  {renderItems()}
+               </ul>}
             </PopperWrapper>
          )}
-         onHide={()=> setHistory((prev)=>prev.slice(0, 1))}
+         onHide={() => setHistory((prev) => prev.slice(0, 1))}
+         
       >
          {children}
       </Tippy>

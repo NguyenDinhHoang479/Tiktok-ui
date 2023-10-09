@@ -51,7 +51,8 @@ const Search = () => {
    
    return (
       <Tippy
-         interactive={true}
+      interactive={true}
+      appendTo={()=>document.body}
          visible={showSearchResult && searchResult.length > 0}
          render={attrs => (
             <PopperWrapper>
